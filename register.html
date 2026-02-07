@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+
+<title>Register</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:black;
+}
+.container{
+    width:40rem;
+    height:25rem;
+    background:beige;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ================= SLIDER PANEL ================= */
+.loginContainer{
+    position:absolute;
+    width:50%;
+    height:100%;
+    background:maroon;
+    left:0;
+    top:0;
+    border-radius:0 60% 60% 0;
+    display:flex;
+    padding:1.5rem;
+    overflow:hidden;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:all 1.5s ease;
+    z-index:1000;
+}
+
+/* RIGHT ANIMATION */
+.loginContainer.toRight{
+    animation:toRight  1.5s ease forwards;
+}
+
+/* LEFT ANIMATION */
+.loginContainer.toLeft{
+    animation:toLeft 1.5s ease forwards;
+}
+
+@keyframes toRight{
+    0%{ left:0; width:50%; border-radius:0 60% 60% 0; }
+    50%{ left:0; width:100%; border-radius:0; }
+    100%{ left:50%; width:50%; border-radius:60% 0 0 60%; }
+}
+
+@keyframes toLeft{
+    0%{ left:50%; width:50%; border-radius:60% 0 0 60%; }
+    50%{ left:0; width:100%; border-radius:0; }
+    100%{ left:0; width:50%; border-radius:0 60% 60% 0; }
+}
+
+/* ================= CONTENT ================= */
+.content h2, .content h3{
+    color:beige;
+    text-align:center;
+    letter-spacing:3px;
+}
+.content h3{
+    background:black;
+    margin-top:8px;
+}
+
+/* register text */
+.registerContent{
+    position:absolute;
+    transform:translateX(900px);
+    top:42%;
+    transition:all 1.5s ease;
+}
+.registerContent.active{
+    transform:translateX(0);
+}
+
+/* login text */
+.loginContent{
+    transform:translateX(0);
+    transition:all 1.5s ease;
+}
+.loginContent.active{
+    transform:translateX(-900px);
+}
+
+/* ================= BUTTONS ================= */
+.registerBtn,
+.loginBtn{
+    position:absolute;
+    bottom:20px;
+    color:beige;
+    text-decoration:none;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+.registerBtn{
+    left:40px;
+    transition:all 1.5s ease;
+}
+.registerBtn.active{
+    transform:translateX(1000px);
+}
+
+.loginBtn{
+    right:40px;
+    transform:translateX(-1000px);
+    transition:all 1.5s ease;
+}
+.loginBtn.active{
+    transform:translateX(0);
+}
+
+.registerBtn i,
+.loginBtn i{
+    font-size:.8rem;
+    animation:arrow .6s ease infinite alternate;
+}
+
+@keyframes arrow{
+    to{ transform:translateX(5px); }
+}
+
+/* ================= FORMS ================= */
+.loginForm,
+.registerForm{
+    position:absolute;
+    width:50%;
+    height:100%;
+    top:0;
+    display:flex; 
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+.loginForm{
+    right:0;
+    transition:all 2s ease;
+}
+.loginForm.active{
+    transform:scale(0);
+    transition:all .5s ease;
+}
+
+.registerForm{
+    left:0;
+    transform:scale(0);
+    transition:all .5s ease;
+}
+.registerForm.active{
+    transform:scale(1);
+    transition: all 2s ease;
+}
+
+.loginForm h2,
+.registerForm h2{
+    color:maroon;
+    letter-spacing:4px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+form{
+    width:100%;
+    max-width:280px;
+}
+form input{
+    width:100%;
+    margin:10px 0;
+    padding:10px 20px;
+    border:none;
+    border-radius:30px 0 30px 0;
+    background:black;
+    color:beige;
+}
+form input::placeholder{
+    color:beige;
+}
+
+form button{
+    width:50%;
+    padding:10px;
+    border:none;
+    background:maroon;
+    color:beige;
+    letter-spacing:3px;
+    font-weight:bold;
+    border-radius:30px 0 30px 0;
+    margin-top:15px;
+    transform:translateX(50%);
+    cursor: pointer;
+}
+
+/* ================= MOBILE RESPONSIVE (ONLY LAYOUT) ================= */
+@media (max-width:600px){
+    .container{
+        width:100%;
+        height:38rem;
+    }
+
+    .loginContainer{
+        width:50%;
+        height:40%;
+        left:0;
+    }
+
+    .loginForm,
+    .registerForm{
+        width:100%;
+        height:60%;
+        top:auto;
+        bottom:0;
+    }
+
+    .loginForm{
+        right:0;
+    }
+
+    .registerForm{
+        left:0;
+    }
+
+    .content h2{
+        font-size:1.2rem;
+    }
+
+    .content h3{
+        font-size:1rem;
+    }
+
+    .registerBtn,
+    .loginBtn{
+        font-size:.8rem;
+        bottom:15px;
+    }
+    .registerBtn i,
+    .loginBtn i{
+        font-size: .6rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="loginContainer">
+        <div class="content">
+            <div class="loginContent">
+                <h2>WELCOME TO</h2>
+                <h3>ShoppingZone</h3>
+            </div>
+
+            <div class="registerContent">
+                <h2>Hey.....</h2>
+                <h3>Register to Explore</h3>
+            </div>
+        </div>
+
+        <a href="#" class="registerBtn">
+            Register <i class="fa-solid fa-right-long"></i>
+        </a>
+
+        <a href="#" class="loginBtn">
+            <i class="fa-solid fa-left-long"></i> Login
+        </a>
+    </div>
+
+    <div class="loginForm">
+        <h2>LOGIN</h2>
+        <form  id="login">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="registerForm">
+        <h2>REGISTER</h2>
+        <form  id="register">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button >Register</button>
+        </form>
+    </div>
+
+</div>
+
+<script src="register.js"></script> <!--Fetching data from the backend-->
+
+</body>
+</html>

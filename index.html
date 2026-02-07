@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Zone</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">Shopping Zone</div>
+  <div class="inputcontainer">
+    <input type="text" placeholder="Search Products..." id="productInput">
+    <div class="carticon">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="productCount"></span>
+    </div>
+  </div>
+   <div class="loginBox">
+    <a href="register.html" class="register">Login/Register</a>
+  </div>
+</div>
+
+<div class="productContainer"></div>
+
+<div class="productFooter footer">
+  <a href="index.html"><button>Home</button></a>
+  <a href="orders.html"><button>Orders</button></a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
