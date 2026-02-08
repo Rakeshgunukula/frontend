@@ -111,9 +111,9 @@ loginBtn.onclick = e =>{
             const data = await response.json();
             if (response.ok) {
                 alert(data.message);
-                loginFormElement.reset();
                 // Redirect to index.html after successful login
-                    window.location.href = '/index.html';
+                window.location.href = '/index.html';
+                loginFormElement.reset();
             } else {
                 alert(data.message);
             }
