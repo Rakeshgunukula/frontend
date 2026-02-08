@@ -100,7 +100,7 @@ loginBtn.onclick = e =>{
         const password = loginFormElement.password.value;
 
         try {
-            const response = await fetch(`${API_URI}/login`, {
+            const response = await fetch(`https://shopping-app-backend-o6w8.onrender.com/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
