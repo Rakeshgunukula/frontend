@@ -587,7 +587,6 @@ body::-webkit-scrollbar{
     top:103px;
     right:0;
     overflow: hidden;
-    transition: all .5s ease;
   }
   .loginBox a{
     text-align: center;

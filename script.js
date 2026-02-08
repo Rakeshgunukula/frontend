@@ -48,10 +48,12 @@ if(logo && input && header){
     // loginBox.style.height = `${Math.min(30 * progress)}px`;
     if(window.scrollY > 0){
       loginBox.style.height = '30px';
+      loginBox.style.transition = 'all 1s ease';
       
     }
     else{
       loginBox.style.height = '0px';
+      loginBox.style.transition = 'all 4s ease';
     }
      if(progress){
       // console.log(progress);
