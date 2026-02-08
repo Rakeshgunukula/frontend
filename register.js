@@ -9,6 +9,7 @@ const loginContent = document.querySelector('.loginContent');
 const registerBtn = document.querySelector('.registerBtn');
 const loginBtn = document.querySelector('.loginBtn');
 const showMsg = document.getElementById('showMsg');
+const container = document.querySelector('.container');
 
 registerBtn.onclick = e =>{
     e.preventDefault();
@@ -70,18 +71,24 @@ loginBtn.onclick = e =>{
                 registerFormElement.reset();
                 showMsg.querySelector('h2').textContent = data.message;
                 showMsg.classList.add('active');
-                loginContainer.style.opacity = '0.4';
-                loginContainer.classList.remove('toRight');
-    loginContainer.classList.add('toLeft');
-
-    loginForm.classList.remove('active');
-    registerForm.classList.remove('active');
-
-    registerContent.classList.remove('active');
-    loginContent.classList.remove('active');
-
-    registerBtn.classList.remove('active');
-    loginBtn.classList.remove('active');
+                container.style.opacity = '0.4';
+                setTimeout(()=>{
+                    showMsg.classList.remove('active');
+                },2000);
+                setTimeout(()=>{
+                    loginContainer.style.opacity = '0.4';
+                    loginContainer.classList.remove('toRight');
+        loginContainer.classList.add('toLeft');
+    
+        loginForm.classList.remove('active');
+        registerForm.classList.remove('active');
+    
+        registerContent.classList.remove('active');
+        loginContent.classList.remove('active');
+    
+        registerBtn.classList.remove('active');
+        loginBtn.classList.remove('active');
+                },3000)
 
             } else {
                 alert(data.message);
@@ -114,7 +121,7 @@ loginBtn.onclick = e =>{
             if (response.ok) {
                showMsg.querySelector('h2').textContent = data.message;
                showMsg.classList.add('active');
-                // Redirect to index.html after successful login
+               container.style.opacity = '0.4';
                 setTimeout(()=>{
                     showMsg.classList.remove('active');
                 },2000);
