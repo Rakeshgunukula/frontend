@@ -114,9 +114,13 @@ loginBtn.onclick = e =>{
             if (response.ok) {
                showMsg.querySelector('h2').textContent = data.message;
                showMsg.classList.add('active');
-               loginContainer.style.opacity = '0.4';
                 // Redirect to index.html after successful login
-                window.location.href = '/index.html';
+                setTimeout(()=>{
+                    showMsg.classList.remove('active');
+                },2000);
+                setTimeout(()=>{
+                    window.location.href = '/index.html';
+                },3000);
                 loginFormElement.reset();
             } else {
                 alert(data.message);
