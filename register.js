@@ -8,6 +8,7 @@ const registerContent = document.querySelector('.registerContent');
 const loginContent = document.querySelector('.loginContent');
 const registerBtn = document.querySelector('.registerBtn');
 const loginBtn = document.querySelector('.loginBtn');
+const showMsg = document.getElementById('showMsg');
 
 registerBtn.onclick = e =>{
     e.preventDefault();
@@ -66,9 +67,9 @@ loginBtn.onclick = e =>{
 
             const data = await response.json();
             if (response.ok) {
-                alert(data.message);
-
                 registerFormElement.reset();
+                showMsg.querySelector('h2').textContent = data.message;
+                showMsg.showModal();
                 loginContainer.classList.remove('toRight');
     loginContainer.classList.add('toLeft');
 
@@ -110,7 +111,8 @@ loginBtn.onclick = e =>{
 
             const data = await response.json();
             if (response.ok) {
-                alert(data.message);
+               showMsg.querySelector('h2').textContent = data.message;
+               showMsg.showModal();
                 // Redirect to index.html after successful login
                 window.location.href = '/index.html';
                 loginFormElement.reset();

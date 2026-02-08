@@ -212,12 +212,12 @@ form button{
     transform:translateX(50%);
     cursor: pointer;
 }
-
 /* ================= MOBILE RESPONSIVE (ONLY LAYOUT) ================= */
 @media (max-width:600px){
     .container{
         width:100%;
         height:38rem;
+        /* opacity:0.3; */
     }
 
     .loginContainer{
@@ -260,12 +260,50 @@ form button{
         font-size: .6rem;
     }
 }
+dialog{
+    background:white;
+    padding:20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border:none;
+    gap:10px;
+    background:white;
+    align-items: center;
+    color:black;
+    border-radius:10px;
+    left:20%;
+    position: absolute;
+  z-index: 10001;
+}
+dialog i{
+    color:seagreen;
+    font-size:.8em;
+}
+dialog button{
+    padding:5px;
+    width:100%;
+    background:seagreen;
+    color:white;
+    border:none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius:10px;
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+ 
+    <!-- dialog box -->
+    <dialog id="showMsg">
+      <h3>Thank you!</h3>
+      <h2>Registration Successful<i class="fa-solid fa-circle-check"></i></h2>
+      <button type="button" onclick="showMsg.close()">Ok</button>
+     </dialog>
+    <div class="container">
 
     <div class="loginContainer">
         <div class="content">
