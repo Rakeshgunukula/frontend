@@ -43,6 +43,11 @@ loginBtn.onclick = e =>{
     //=========**** Fetching A P I  from the backend*****========
 
     // register form
+
+    // api uri
+
+    const API_URI = 'https://shopping-app-backend-o6w8.onrender.com';
+ 
     const registerFormElement = document.getElementById('register');
     registerFormElement.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -51,7 +56,7 @@ loginBtn.onclick = e =>{
         const password = registerFormElement.password.value;
 
         try {
-            const response = await fetch('/register', {
+            const response = await fetch(`${API_URI}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -81,7 +86,7 @@ loginBtn.onclick = e =>{
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('An error occurred while registering. Please try again later.');
+            // alert('An error occurred while registering. Please try again later.');
         }
     });
 
@@ -95,7 +100,7 @@ loginBtn.onclick = e =>{
         const password = loginFormElement.password.value;
 
         try {
-            const response = await fetch('/login', {
+            const response = await fetch(`${API_URI}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -108,7 +113,9 @@ loginBtn.onclick = e =>{
                 alert(data.message);
                 loginFormElement.reset();
                 // Redirect to index.html after successful login
-                // window.location.href = '/index.html';
+                setTimeout(()=>{
+                    window.location.href = '/index.html';
+                },1000);
                 
             } else {
                 alert(data.message);
