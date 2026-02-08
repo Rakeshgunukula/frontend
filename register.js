@@ -69,7 +69,7 @@ loginBtn.onclick = e =>{
             if (response.ok) {
                 registerFormElement.reset();
                 showMsg.querySelector('h2').textContent = data.message;
-                showMsg.showModal();
+                showMsg.classList.add('active');
                 loginContainer.classList.remove('toRight');
     loginContainer.classList.add('toLeft');
 
@@ -112,7 +112,7 @@ loginBtn.onclick = e =>{
             const data = await response.json();
             if (response.ok) {
                showMsg.querySelector('h2').textContent = data.message;
-               showMsg.showModal();
+               showMsg.classList.add('active');
                 // Redirect to index.html after successful login
                 window.location.href = '/index.html';
                 loginFormElement.reset();
