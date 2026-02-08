@@ -113,9 +113,10 @@ loginBtn.onclick = e =>{
                 alert(data.message);
                 loginFormElement.reset();
                 // Redirect to index.html after successful login
-                setTimeout(()=>{
-                    window.location.href = '/index.html';
-                },1000);
+                // setTimeout(()=>{
+                //     window.location.href = 'index.html';
+                // },1000);
+                console.log('login successful');
                 
             } else {
                 alert(data.message);
