@@ -100,7 +100,7 @@ loginBtn.onclick = e =>{
         const password = loginFormElement.password.value;
 
         try {
-            const response = await fetch(`https://shopping-app-backend-o6w8.onrender.com/login`, {
+            const response = await fetch(`${API_URI}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,10 +113,9 @@ loginBtn.onclick = e =>{
                 alert(data.message);
                 loginFormElement.reset();
                 // Redirect to index.html after successful login
-                // setTimeout(()=>{
-                //     window.location.href = 'index.html';
-                // },1000);
-                console.log('login successful');
+                setTimeout(()=>{
+                    window.location.href = '/index.html';
+                },1000);
                 
             } else {
                 alert(data.message);
