@@ -70,6 +70,7 @@ loginBtn.onclick = e =>{
                 registerFormElement.reset();
                 showMsg.querySelector('h2').textContent = data.message;
                 showMsg.classList.add('active');
+                loginContainer.style.opacity = '0.4';
                 loginContainer.classList.remove('toRight');
     loginContainer.classList.add('toLeft');
 
@@ -113,6 +114,7 @@ loginBtn.onclick = e =>{
             if (response.ok) {
                showMsg.querySelector('h2').textContent = data.message;
                showMsg.classList.add('active');
+               loginContainer.style.opacity = '0.4';
                 // Redirect to index.html after successful login
                 window.location.href = '/index.html';
                 loginFormElement.reset();
