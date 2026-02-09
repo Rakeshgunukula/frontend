@@ -134,8 +134,11 @@ loginBtn.onclick = e =>{
                 setTimeout(() =>{
                     showMsg.classList.remove('show');
                     container.classList.remove('show');
-                    window.location.href = '/index.html';
                 },2000);
+                setTimeout(() =>{
+
+                    window.location.href = '/index.html';
+                },3000);
             } else if(response.status === 400 || response.status === 404){
                 showMsg.querySelector('p').textContent = data.message;
                 
