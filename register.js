@@ -128,6 +128,7 @@ loginBtn.onclick = e =>{
             if (response.ok) {
                 loginFormElement.reset();
                 showMsg.querySelector('p').textContent = data.message;
+                showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
                 showMsg.classList.add('show');
                 container.classList.add('show');
                 setTimeout(() =>{
@@ -150,8 +151,8 @@ loginBtn.onclick = e =>{
                 container.classList.remove('show');
                 },2000);
 
-
             }
+            alert(data.message);
         } catch (error) {
             console.error('Error:', error);
         }
