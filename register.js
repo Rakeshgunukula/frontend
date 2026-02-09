@@ -8,7 +8,7 @@ const registerContent = document.querySelector('.registerContent');
 const loginContent = document.querySelector('.loginContent');
 const registerBtn = document.querySelector('.registerBtn');
 const loginBtn = document.querySelector('.loginBtn');
-const showMsg = document.getElementById('showmsg');
+const showMsg = document.querySelector('.showmsg');
 const container = document.querySelector('.container');
 
 registerBtn.onclick = e =>{
