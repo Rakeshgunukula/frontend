@@ -126,11 +126,11 @@ loginBtn.onclick = e =>{
 
             const data = await response.json();
             if (response.ok) {
+                loginFormElement.reset();
                 showMsg.querySelector('p').textContent = data.message;
                 // showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
                 showMsg.classList.add('show');
                 container.classList.add('show');
-                loginFormElement.reset();
                 setTimeout(() =>{
                     showMsg.classList.remove('show');
                     container.classList.remove('show');
@@ -149,6 +149,7 @@ loginBtn.onclick = e =>{
                 setTimeout(() =>{
                 showMsg.classList.remove('show');
                 container.classList.remove('show');
+                loginFormElement.reset();
                 },2000);
 
             }
