@@ -29,8 +29,12 @@ body{
     background:beige;
     position:relative;
     overflow:hidden;
+    opacity:1;
 }
 
+.container.show{
+    opacity:0.3;
+}
 /* ================= SLIDER PANEL ================= */
 .loginContainer{
     position:absolute;
@@ -212,14 +216,53 @@ form button{
     transform:translateX(50%);
     cursor: pointer;
 }
+
+  
+    .showmsg{
+        width:50%;
+        padding:20px;
+        border-radius:10px;
+        background:beige;
+        position: absolute;
+        top:-100px;
+        z-index: 10001;
+        transition:all 1s ease;
+        box-shadow:0 0 10px rgba(0,0,0,0.5);
+
+    }
+    .showmsg p{
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .showmsg p i{
+        color:green;
+        margin-left:3px;
+    }
+    .showmsg.show{
+        top:50px;
+    }
 /* ================= MOBILE RESPONSIVE (ONLY LAYOUT) ================= */
 @media (max-width:600px){
     .container{
         width:100%;
         height:38rem;
-        /* opacity:0.3; */
+        opacity:1;
+        transform:scale(1);
+        transition:all 1s ease;
+    }
+   
+    .container.show{
+        opacity:0.4;
+        transform:scale(.6);
+
     }
 
+    .showmsg p{
+        letter-spacing: 1px;
+    }
+
+     
     .loginContainer{
         width:50%;
         height:40%;
@@ -260,56 +303,41 @@ form button{
         font-size: .6rem;
     }
 }
-dialog{
-    background:white;
-    padding:20px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border:none;
-    gap:10px;
-    background:white;
-    align-items: center;
-    opacity:0;
-    transform:scale(0);
-    transition:all .5s ease;
-    color:black;
-    border-radius:10px;
-    left:20%;
-    position: absolute;
-  z-index: 10001;
-}
-dialog i{
-    color:seagreen;
-    font-size:.8em;
-}
-dialog button{
-    padding:5px;
-    width:100%;
-    background:seagreen;
-    color:white;
-    border:none;
-    font-weight: bold;
-    letter-spacing: 2px;
-    cursor: pointer;
-    border-radius:10px;
-}
-dialog.active{
-    opacity: 1;
-    transform: scale(1);
-}
+/*     
+    .showmsg{
+        width:50%;
+        padding:20px;
+        border-radius:10px;
+        background:beige;
+        position: absolute;
+        top:20px;
+        z-index: 10001;
+        transition:all 1s ease;
+        box-shadow:0 0 10px rgba(0,0,0,0.5);
+
+    }
+    .showmsg p{
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .showmsg p i{
+        color:green;
+        margin-left:3px;
+    }
+    .showmsg.show{
+        top:50px;
+    } */
+
 </style>
 </head>
 
 <body>
+    <div class="showmsg">
 
- 
-    <!-- dialog box -->
-    <dialog id="showMsg">
-      <h3>Thank you!</h3>
-      <h2>Registration Successful<i class="fa-solid fa-circle-check"></i></h2>
-      <button type="button" onclick="document.querySelector('#showMsg').classList.remove('active')">Ok</button>
-     </dialog>
+        <p>Registration Successful!<i class="fa-solid fa-circle-check"></i></p>
+
+    </div>
     <div class="container">
 
     <div class="loginContainer">

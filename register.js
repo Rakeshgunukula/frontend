@@ -8,7 +8,7 @@ const registerContent = document.querySelector('.registerContent');
 const loginContent = document.querySelector('.loginContent');
 const registerBtn = document.querySelector('.registerBtn');
 const loginBtn = document.querySelector('.loginBtn');
-const showMsg = document.getElementById('showMsg');
+const showMsg = document.getElementById('showmsg');
 const container = document.querySelector('.container');
 
 registerBtn.onclick = e =>{
@@ -69,29 +69,36 @@ loginBtn.onclick = e =>{
             const data = await response.json();
             if (response.ok) {
                 registerFormElement.reset();
-                showMsg.querySelector('h2').textContent = data.message;
-                showMsg.classList.add('active');
-                container.style.opacity = '0.4';
-                setTimeout(()=>{
-                    showMsg.classList.remove('active');
-                },2000);
-                setTimeout(()=>{
-                    loginContainer.style.opacity = '0.4';
-                    loginContainer.classList.remove('toRight');
-        loginContainer.classList.add('toLeft');
-    
-        loginForm.classList.remove('active');
-        registerForm.classList.remove('active');
-    
-        registerContent.classList.remove('active');
-        loginContent.classList.remove('active');
-    
-        registerBtn.classList.remove('active');
-        loginBtn.classList.remove('active');
-                },3000)
+                container.classList.add('show');
+                showMsg.querySelector('p').textContent = data.message;
+                showMsg.classList.add('show');
 
-            } else {
-                alert(data.message);
+                setTimeout(() =>{
+                    showMsg.classList.remove('show');
+                    container.classList.remove('show');
+                    loginContainer.classList.remove('toRight');
+                    loginContainer.classList.add('toLeft');
+    
+                    loginForm.classList.remove('active');
+                    registerForm.classList.remove('active');
+    
+                    registerContent.classList.remove('active');
+                    loginContent.classList.remove('active');
+                
+                    registerBtn.classList.remove('active');
+                    loginBtn.classList.remove('active');
+                },2000);
+               
+            } else if(response.status === 409){
+                showMsg.querySelector('p').textContent = data.message;
+                showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                showMsg.querySelector('i').style.color = 'red';
+                showMsg.classList.add('show');
+                container.classList.add('show');
+                setTimeout(() =>{
+                showMsg.classList.remove('show');
+                container.classList.remove('show');
+                },2000);
             }
         } catch (error) {
             console.error('Error:', error);
@@ -119,18 +126,31 @@ loginBtn.onclick = e =>{
 
             const data = await response.json();
             if (response.ok) {
-               showMsg.querySelector('h2').textContent = data.message;
-               showMsg.classList.add('active');
-               container.style.opacity = '0.4';
-                setTimeout(()=>{
-                    showMsg.classList.remove('active');
-                },2000);
-                setTimeout(()=>{
-                    window.location.href = '/index.html';
-                },3000);
                 loginFormElement.reset();
-            } else {
-                alert(data.message);
+                showMsg.querySelector('p').textContent = data.message;
+                showMsg.classList.add('show');
+                container.classList.add('show');
+                setTimeout(() =>{
+                    showMsg.classList.remove('show');
+                    container.classList.remove('show');
+                    window.location.href = '/index.html';
+                },2000);
+            } else if(response.status === 404 || response.status === 400){
+                showMsg.querySelector('p').textContent = data.message;
+                
+                showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+
+                showMsg.querySelector('i').style.color = 'red';
+
+                showMsg.classList.add('show');
+
+                container.classList.add('show');
+                setTimeout(() =>{
+                showMsg.classList.remove('show');
+                container.classList.remove('show');
+                },2000);
+
+
             }
         } catch (error) {
             console.error('Error:', error);
