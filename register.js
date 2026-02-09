@@ -126,17 +126,16 @@ loginBtn.onclick = e =>{
 
             const data = await response.json();
             if (response.ok) {
-                loginFormElement.reset();
                 showMsg.querySelector('p').textContent = data.message;
                 showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
                 showMsg.classList.add('show');
                 container.classList.add('show');
+                loginFormElement.reset();
                 setTimeout(() =>{
                     showMsg.classList.remove('show');
                     container.classList.remove('show');
                     window.location.href = '/index.html';
                 },2000);
-                return;
             } else if(response.status === 400 || response.status === 404){
                 showMsg.querySelector('p').textContent = data.message;
                 
