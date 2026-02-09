@@ -136,7 +136,8 @@ loginBtn.onclick = e =>{
                     container.classList.remove('show');
                     window.location.href = '/index.html';
                 },2000);
-            } else if(response.status === 404 || response.status === 400){
+                return;
+            } else if(response.status === 400 || response.status === 404){
                 showMsg.querySelector('p').textContent = data.message;
                 
                 showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
