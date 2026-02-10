@@ -67,7 +67,7 @@ loginBtn.onclick = e =>{
             });
 
             const data = await response.json();
-            if (response.ok) {
+            if (data.status === 200 || data.status === 201 ) {
                 registerFormElement.reset();
                 container.classList.add('show');
                 showMsg.querySelector('p').textContent = data.message;
@@ -91,8 +91,8 @@ loginBtn.onclick = e =>{
                
             } else if(response.status === 409){
                 showMsg.querySelector('p').textContent = data.message;
-                // showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
-                // showMsg.querySelector('i').style.color = 'red';
+                showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                showMsg.querySelector('div').style.color = 'red';
                 showMsg.classList.add('show');
                 container.classList.add('show');
                 setTimeout(() =>{
@@ -128,7 +128,7 @@ loginBtn.onclick = e =>{
             if (response.ok) {
                 loginFormElement.reset();
                 showMsg.querySelector('p').textContent = data.message;
-                // showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+                showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
                 showMsg.classList.add('show');
                 container.classList.add('show');
                 setTimeout(() =>{
@@ -142,9 +142,9 @@ loginBtn.onclick = e =>{
             } else if(response.status === 400 || response.status === 404){
                 showMsg.querySelector('p').textContent = data.message;
                 
-                // showMsg.querySelector('i').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
 
-                // showMsg.querySelector('i').style.color = 'red';
+                showMsg.querySelector('div').style.color = 'red';
 
                 showMsg.classList.add('show');
 
