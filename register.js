@@ -67,7 +67,7 @@ loginBtn.onclick = e =>{
             });
 
             const data = await response.json();
-            if (response.status === 201) {
+            if (response.ok) {
                 registerFormElement.reset();
                 container.classList.add('show');
                 showMsg.querySelector('p').textContent = data.message;
@@ -125,7 +125,7 @@ loginBtn.onclick = e =>{
             });
 
             const data = await response.json();
-            if (response.status === 200) {
+            if (response.ok) {
                 loginFormElement.reset();
                 showMsg.querySelector('p').textContent = data.message;
                 showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
