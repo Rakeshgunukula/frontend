@@ -153,7 +153,7 @@ loginBtn.onclick = e =>{
                 setTimeout(() =>{
                 showMsg.classList.remove('show');
                 container.classList.remove('show');
-                loginFormElement.reset();
+                // loginFormElement.reset();
                 },2000);
 
             }
