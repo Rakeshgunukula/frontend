@@ -71,6 +71,8 @@ loginBtn.onclick = e =>{
                 registerFormElement.reset();
                 container.classList.add('show');
                 showMsg.querySelector('p').textContent = data.message;
+                showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+                showMsg.querySelector('div i').style.color = 'green';
                 showMsg.classList.add('show');
 
                 setTimeout(() =>{
