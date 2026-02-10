@@ -92,7 +92,7 @@ loginBtn.onclick = e =>{
             } else if(response.status === 409){
                 showMsg.querySelector('p').textContent = data.message;
                 showMsg.querySelector('div').innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
-                showMsg.querySelector('div i').style = 'red';
+                showMsg.querySelector('div i').style.color = 'red';
                 showMsg.classList.add('show');
                 container.classList.add('show');
                 setTimeout(() =>{
@@ -125,7 +125,7 @@ loginBtn.onclick = e =>{
             });
 
             const data = await response.json();
-            if (data.status === 200) {
+            if (response.ok) {
                 loginFormElement.reset();
                 showMsg.querySelector('p').textContent = data.message;
                 showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-check"></i>';
