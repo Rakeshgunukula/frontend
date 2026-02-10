@@ -91,7 +91,7 @@ loginBtn.onclick = e =>{
                
             } else if(response.status === 409){
                 showMsg.querySelector('p').textContent = data.message;
-                showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                showMsg.querySelector('div').innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
                 showMsg.querySelector('div i').background = 'red';
                 showMsg.classList.add('show');
                 container.classList.add('show');
@@ -143,7 +143,7 @@ loginBtn.onclick = e =>{
             } else if(response.status === 400 || response.status === 404){
                 showMsg.querySelector('p').textContent = data.message;
                 
-                showMsg.querySelector('div').innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                showMsg.querySelector('div').innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
 
                 showMsg.querySelector('div i').style.background = 'red';
 
