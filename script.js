@@ -31,7 +31,7 @@ let cart = getCart();
 
 const logo = document.querySelector('.header .logo');
 const input = document.querySelector('.inputcontainer input');
-const register = document.querySelector('.loginBox a');
+// const register = document.querySelector('.loginBox a');
 const loginBox = document.querySelector('.loginBox');
 // const login = document.querySelector('.loginBox .login');
 const header = document.querySelector('.header');
@@ -56,21 +56,21 @@ if(logo && input && header){
         loginBox.style.height = '0px';
         loginBox.style.transition = 'all 2s ease';
       }
-    }
      if(progress){
       // console.log(progress);
       header.classList.add('shrink');
       input.classList.add('shrink');
-      register.classList.add('shrink');
+      // register.classList.add('shrink');
       // login.classList.add('shrink');
 
     }
     else{
       header.classList.remove('shrink');
       input.classList.remove('shrink');
-      register.classList.remove('shrink');
+      // register.classList.remove('shrink');
       // login.classList.remove('shrink');
     }
+  }
   });
 }
 /* ========= DISPLAY PRODUCTS ========= */
