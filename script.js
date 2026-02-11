@@ -46,14 +46,16 @@ if(logo && input && header){
     input.style.border = `${Math.min(1 + progress)}px solid #ccc`;
     header.style.top = `${Math.min(-35 * progress)}px`;
     // loginBox.style.height = `${Math.min(30 * progress)}px`;
-    if(window.scrollY > 0){
-      loginBox.style.height = '30px';
-      loginBox.style.transition = 'all 2s ease';
-      
-    }
-    else{
-      loginBox.style.height = '0px';
-      loginBox.style.transition = 'all 2s ease';
+    if(loginBox){
+      if(window.scrollY > 0){
+        loginBox.style.height = '30px';
+        loginBox.style.transition = 'all 2s ease';
+        
+      }
+      else{
+        loginBox.style.height = '0px';
+        loginBox.style.transition = 'all 2s ease';
+      }
     }
      if(progress){
       // console.log(progress);
