@@ -66,8 +66,8 @@ if(logo && input && header){
     else{
       header.classList.remove('shrink');
       input.classList.remove('shrink');
-    login.classList.remove('shrink');
-    register.classList.remove('shrink');
+      register.classList.remove('shrink');
+      login.classList.remove('shrink');
     }
   });
 }
