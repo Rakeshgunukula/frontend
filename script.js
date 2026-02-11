@@ -9,6 +9,8 @@ const products = [
   { id:6, name:'Bed', image:'assets/bed.jpg', price:50000 },
   { id:7, name:'MacBook air', image:'assets/macbookair.jpg', price:80000 },
   { id:8, name:'Royal Enfield', image:'assets/royal.jpg', price:120000 },
+  { id:9, name:'Nature Painting', image:'assets/nature.avif', price:500},
+  { id:10, name:'Gaming Chair', image:'assets/chair.avif', price:4000}
 ];
 
 // Formating Price according to indian currency
@@ -60,15 +62,12 @@ if(logo && input && header){
       // console.log(progress);
       header.classList.add('shrink');
       input.classList.add('shrink');
-      // register.classList.add('shrink');
-      // login.classList.add('shrink');
+     
 
     }
     else{
       header.classList.remove('shrink');
       input.classList.remove('shrink');
-      // register.classList.remove('shrink');
-      // login.classList.remove('shrink');
     }
   }
   });
