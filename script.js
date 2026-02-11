@@ -33,7 +33,7 @@ const logo = document.querySelector('.header .logo');
 const input = document.querySelector('.inputcontainer input');
 const register = document.querySelector('.loginBox .register');
 const loginBox = document.querySelector('.loginBox');
-const login = document.querySelector('.loginBox .login');
+// const login = document.querySelector('.loginBox .login');
 const header = document.querySelector('.header');
 if(logo && input && header){
   window.addEventListener('scroll', ()=>{
@@ -60,14 +60,14 @@ if(logo && input && header){
       header.classList.add('shrink');
       input.classList.add('shrink');
       register.classList.add('shrink');
-      login.classList.add('shrink');
+      // login.classList.add('shrink');
 
     }
     else{
       header.classList.remove('shrink');
       input.classList.remove('shrink');
       register.classList.remove('shrink');
-      login.classList.remove('shrink');
+      // login.classList.remove('shrink');
     }
   });
 }
