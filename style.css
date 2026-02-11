@@ -655,7 +655,7 @@ body::-webkit-scrollbar{
     background:black;
     color:beige;
   }
-  .loginBox .register.shrink{
+  .loginBox a.shrink{
     background:black;
     color:white;
   }

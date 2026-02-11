@@ -31,7 +31,7 @@ let cart = getCart();
 
 const logo = document.querySelector('.header .logo');
 const input = document.querySelector('.inputcontainer input');
-const register = document.querySelector('.loginBox .register');
+const register = document.querySelector('.loginBox a');
 const loginBox = document.querySelector('.loginBox');
 // const login = document.querySelector('.loginBox .login');
 const header = document.querySelector('.header');
