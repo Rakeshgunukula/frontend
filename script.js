@@ -10,7 +10,11 @@ const products = [
   { id:7, name:'MacBook air', image:'assets/macbookair.jpg', price:80000 },
   { id:8, name:'Royal Enfield', image:'assets/royal.jpg', price:120000 },
   { id:9, name:'Nature Painting', image:'assets/nature.avif', price:500},
-  { id:10, name:'Gaming Chair', image:'assets/chair.avif', price:4000}
+  { id:10, name:'Stylish Loafers', image:'assets/loafers.avif', price:1199},
+  { id:10, name:'Marron Shirt', image:'assets/marronshir.avif', price:399},
+  { id:10, name:'Boots', image:'assets/boots.avif', price:1399},
+  { id:10, name:'Nike Shoes', image:'assets/nike.avif', price:5000},
+  { id:10, name:'Nike Airjordan', image:'assets/airjordan.avif', price:100000},
 ];
 
 // Formating Price according to indian currency
