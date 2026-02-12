@@ -47,8 +47,12 @@ if(logo && input && header){
     const progress = Math.min(window.scrollY / maxScroll, 1);
        logo.style.opacity = 1 - progress;
     logo.style.transform = `scale(${1- progress})`;
-    input.style.transform = `translateX(${-2 * progress}%)`;
-    input.style.flex = Math.min(0.5 + progress,1);
+    if(window.innerWidth > 900){
+      input.style.transform += ` translateY(${2 * progress}%)`;
+    }
+    else{
+      input.style.flex = Math.min(0.5 + progress,1);
+    }
     input.style.border = `${Math.min(1 + progress)}px solid #ccc`;
     header.style.top = `${Math.min(-35 * progress)}px`;
     // loginBox.style.height = `${Math.min(30 * progress)}px`;
