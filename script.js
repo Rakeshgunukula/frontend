@@ -50,13 +50,6 @@ if(logo && input && header){
     input.style.border = `${Math.min(1 + progress)}px solid #ccc`;
     header.style.top = `${Math.min(-35 * progress)}px`;
     // loginBox.style.height = `${Math.min(30 * progress)}px`;
-    if(loginBox){
-      if(window.scrollY > 0){
-        loginBox.classList.add('shrink');
-      }
-      else{
-        loginBox.classList.remove('shrink');
-      }
      if(progress){
       // console.log(progress);
       header.classList.add('shrink');
@@ -66,7 +59,14 @@ if(logo && input && header){
       header.classList.remove('shrink');
       input.classList.remove('shrink');
     }
-  }
+     if(loginBox){
+      if(window.scrollY > 0){
+        loginBox.classList.add('shrink');
+      }
+      else{
+        loginBox.classList.remove('shrink');
+      }
+    }
   });
 }
 /* ========= DISPLAY PRODUCTS ========= */
