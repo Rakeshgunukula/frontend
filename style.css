@@ -580,7 +580,7 @@ body::-webkit-scrollbar{
     display: flex;
     justify-content: center;
     align-items: center;
-    height:auto;
+    height:0px;
     background:black;
     position: fixed;
     top:103px;
@@ -594,7 +594,10 @@ body::-webkit-scrollbar{
     right:0;
     font-size:1rem;
     letter-spacing: 3px;
+}
 
+.loginBox.shrink{
+  height:40px;
 
 }
 /* ================= DESKTOP / LAPTOP ================= */
