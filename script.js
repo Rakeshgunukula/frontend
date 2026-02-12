@@ -39,7 +39,6 @@ const logo = document.querySelector('.header .logo');
 const input = document.querySelector('.inputcontainer input');
 // const register = document.querySelector('.loginBox a');
 const loginBox = document.querySelector('.loginBox');
-// const login = document.querySelector('.loginBox .login');
 const header = document.querySelector('.header');
 if(logo && input && header){
   window.addEventListener('scroll', ()=>{
@@ -48,7 +47,7 @@ if(logo && input && header){
        logo.style.opacity = 1 - progress;
     logo.style.transform = `scale(${1- progress})`;
     if(window.innerWidth > 900){
-      input.style.transform += ` translateY(${2 * progress}%)`;
+      input.style.transform += ` translateX(${2 * progress}%)`;
     }
     else{
       input.style.flex = Math.min(0.5 + progress,1);
