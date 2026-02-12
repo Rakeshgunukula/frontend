@@ -10,7 +10,7 @@ const registerBtn = document.querySelector('.registerBtn');
 const loginBtn = document.querySelector('.loginBtn');
 const showMsg = document.querySelector('.showmsg');
 const container = document.querySelector('.container');
-const loginpassword = document.querySelector('#password');
+const loginpassword = document.querySelector('.loginForm #password');
 
 registerBtn.onclick = e =>{
     e.preventDefault();
