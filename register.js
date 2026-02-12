@@ -10,6 +10,7 @@ const registerBtn = document.querySelector('.registerBtn');
 const loginBtn = document.querySelector('.loginBtn');
 const showMsg = document.querySelector('.showmsg');
 const container = document.querySelector('.container');
+const loginpassword = document.querySelector('#password');
 
 registerBtn.onclick = e =>{
     e.preventDefault();
@@ -143,6 +144,10 @@ loginBtn.onclick = e =>{
                     window.location.href = '/index.html';
                 },3000);
             } else if(response.status === 400 || response.status === 404){
+                loginpassword.classList.add('active');
+                setTimeout(()=>{
+                    loginpassword.classList.remove('active');
+                },2000)
                 showMsg.querySelector('p').textContent = data.message;
                 
                 showMsg.querySelector('div').innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';

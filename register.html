@@ -245,6 +245,17 @@ form button{
     .showmsg.show{
         top:50px;
     }
+
+    .loginForm #password.active{
+        animation: anim .1s linear infinite alternate-reverse ;
+        border:2px solid red;
+        transition:all .5s ease;
+    }
+    @keyframes anim{
+        to{
+            transform: translateX(4px);;
+        }
+    }
 /* ================= MOBILE RESPONSIVE (ONLY LAYOUT) ================= */
 @media (max-width:600px){
     .container{
@@ -306,6 +317,9 @@ form button{
         font-size: .6rem;
     }
 }
+
+
+
 /*     
     .showmsg{
         width:50%;
@@ -371,7 +385,7 @@ form button{
         <h2>LOGIN</h2>
         <form  id="login">
             <input type="email" name="email" placeholder="Email" required autofocus>
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
             <button>Login</button>
         </form>
     </div>

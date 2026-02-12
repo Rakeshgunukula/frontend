@@ -640,6 +640,9 @@ body::-webkit-scrollbar{
     margin-left:-240px;
     margin-right:20px;
   }
+  .inputcontainer input{
+    transition: all 1s ease;
+  }
   .inputcontainer input.shrink{
     transition: all 1s ease;
     flex:.5;
