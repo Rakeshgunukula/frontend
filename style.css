@@ -57,8 +57,8 @@ body::-webkit-scrollbar{
   display:flex;
   gap:10px;
   align-items: center;
+  /* transition: all 2s ease; */
   justify-content:center;
-  transition: all 2s ease;
   margin-top:10px;
 }
 .inputcontainer.shrink{
@@ -70,19 +70,18 @@ body::-webkit-scrollbar{
 .inputcontainer input{
   flex:.4;
   padding:10px;
+  transition: all 1s ease;
   border:none;
   outline:none;
   margin-left:20px;
   background:beige;
-  transition:all 2s ease;
   border-radius:5px;
   font-weight:bold;
 }
 .inputcontainer input.shrink{
     border:1px solid white;
-    flex:1;
+    flex:.8;
     color:white;
-    transition:all 2s ease;
     background:rgba(0,0,0,0.5);
 }
 /* CART ICON */
@@ -634,7 +633,7 @@ body::-webkit-scrollbar{
     grid-column: 1 / -1;
     margin-top:10px;
     margin-left:20px;
-    transition:all .5s ease;
+    transition:all 2s ease;
   }
 
   .inputcontainer.shrink{
@@ -642,6 +641,7 @@ body::-webkit-scrollbar{
     margin-right:20px;
   }
   .inputcontainer input.shrink{
+    transition: all 1s ease;
     flex:.5;
   }
   .loginBox {
