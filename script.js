@@ -11,10 +11,10 @@ const products = [
   { id:8, name:'Royal Enfield', image:'assets/royal.jpg', price:120000 },
   { id:9, name:'Nature Painting', image:'assets/nature.avif', price:500},
   { id:10, name:'Stylish Loafers', image:'assets/loafers.avif', price:1199},
-  { id:10, name:'Marron Shirt', image:'assets/marronshir.avif', price:399},
-  { id:10, name:'Boots', image:'assets/boots.avif', price:1399},
-  { id:10, name:'Nike Shoes', image:'assets/nike.avif', price:5000},
-  { id:10, name:'Nike Airjordan', image:'assets/airjordan.avif', price:100000},
+  { id:11, name:'Marron Shirt', image:'assets/marronshir.avif', price:399},
+  { id:12, name:'Boots', image:'assets/boots.avif', price:1399},
+  { id:13, name:'Nike Shoes', image:'assets/nike.avif', price:5000},
+  { id:14, name:'Nike Airjordan', image:'assets/airjordan.avif', price:100000},
 ];
 
 // Formating Price according to indian currency
@@ -54,13 +54,11 @@ if(logo && input && header){
     // loginBox.style.height = `${Math.min(30 * progress)}px`;
     if(loginBox){
       if(window.scrollY > 0){
-        loginBox.style.height = '30px';
-        loginBox.style.transition = 'all 2s ease';
+        loginBox.classList.add('shrink');
         
       }
       else{
-        loginBox.style.height = '0px';
-        loginBox.style.transition = 'all 2s ease';
+        loginBox.classList.remove('shrink');
       }
      if(progress){
       // console.log(progress);

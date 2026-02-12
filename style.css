@@ -586,6 +586,7 @@ body::-webkit-scrollbar{
     position: fixed;
     top:103px;
     right:0;
+    transition:all 2s ease;
     overflow: hidden;
   }
   .loginBox a{
@@ -594,6 +595,10 @@ body::-webkit-scrollbar{
     right:0;
     font-size:1rem;
     letter-spacing: 3px;
+  }
+
+  .loginBox.shrink{
+    height:30px;
   }
 }
 /* ================= DESKTOP / LAPTOP ================= */
@@ -650,6 +655,7 @@ body::-webkit-scrollbar{
     transition:all .5s ease;
     color:black;
     padding:6px;
+    height:auto;
   }
   .loginBox a:hover{
     background:black;
