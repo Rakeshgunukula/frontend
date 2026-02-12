@@ -47,7 +47,7 @@ if(logo && input && header){
        logo.style.opacity = 1 - progress;
     logo.style.transform = `scale(${1- progress})`;
     if(window.innerWidth > 901){
-    input.style.transform = ` translateX(${2 + progress})px`;
+    input.style.transform = ` translateX(${2 * progress})px`;
       input.style.flex = 0.5;
     }
     else{
