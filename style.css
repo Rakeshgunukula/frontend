@@ -64,6 +64,7 @@ body::-webkit-scrollbar{
 .inputcontainer.shrink{
   margin-right:20px;
   margin-left:20px;
+  transition: all 2s ease;
 }
 
 .inputcontainer input{
@@ -81,6 +82,7 @@ body::-webkit-scrollbar{
     border:1px solid white;
     flex:1;
     color:white;
+    transition:all 2s ease;
     background:rgba(0,0,0,0.5);
 }
 /* CART ICON */
