@@ -57,8 +57,6 @@ if(logo && input && header){
       else{
         loginBox.classList.remove('shrink');
       }
-    }
-  
      if(progress){
       // console.log(progress);
       header.classList.add('shrink');
@@ -68,6 +66,7 @@ if(logo && input && header){
       header.classList.remove('shrink');
       input.classList.remove('shrink');
     }
+  }
   });
 }
 /* ========= DISPLAY PRODUCTS ========= */
