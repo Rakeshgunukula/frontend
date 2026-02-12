@@ -66,7 +66,9 @@ if(logo && input && header){
       else{
         loginBox.classList.remove('shrink');
       }
+      
     }
+
   });
 }
 /* ========= DISPLAY PRODUCTS ========= */

@@ -575,7 +575,6 @@ body::-webkit-scrollbar{
   border-radius:6px;
   cursor:pointer;
 }
-@media(max-width:900px){
   .loginBox{
     width:300px;
     display: flex;
@@ -595,12 +594,8 @@ body::-webkit-scrollbar{
     right:0;
     font-size:1rem;
     letter-spacing: 3px;
-  }
 
-  .loginBox.shrink{
-    height:30px;
-    transition: all 2s ease;
-  }
+
 }
 /* ================= DESKTOP / LAPTOP ================= */
 @media (min-width:900px){
@@ -641,8 +636,7 @@ body::-webkit-scrollbar{
   position: sticky;
   top:60px;
   }
-
-
+  
   .loginBox a{
     position: relative;
     text-decoration: none;
