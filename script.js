@@ -69,6 +69,7 @@ if(logo && input && header){
       input.classList.remove('shrink');
     }
   });
+}
 /* ========= DISPLAY PRODUCTS ========= */
 
 function displayProducts(filter = ''){
