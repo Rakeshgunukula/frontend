@@ -46,14 +46,7 @@ if(logo && input && header){
     const progress = Math.min(window.scrollY / maxScroll, 1);
        logo.style.opacity = 1 - progress;
     logo.style.transform = `scale(${1- progress})`;
-    if(window.innerWidth > 901){
-    input.style.transform = ` translateX(${2 * progress})%`;
-      input.style.flex = 0.5;
-    }
-    else{
-      input.style.flex = 0.5;
-      input.style.flex = Math.min(0.5 + progress, .8);
-    }
+  
     input.style.border = `${Math.min(1 + progress)}px solid #ccc`;
     header.style.top = `${Math.min(-35 * progress)}px`;
     // loginBox.style.height = `${Math.min(30 * progress)}px`;
@@ -69,6 +62,15 @@ if(logo && input && header){
       // console.log(progress);
       header.classList.add('shrink');
       input.classList.add('shrink');
+
+      if(window.innerWidth > 901){
+    input.style.transform = ` translateX(${2 * progress})%`;
+      input.style.flex = 0.5;
+    }
+    else{
+      input.style.flex = 0.5;
+      input.style.flex = Math.min(0.5 + progress, .8);
+    }
      
 
     }
