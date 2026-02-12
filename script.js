@@ -37,6 +37,7 @@ let cart = getCart();
 
 const logo = document.querySelector('.header .logo');
 const input = document.querySelector('.inputcontainer input');
+const inputContainer = document.querySelector('.inputcontainer');
 // const register = document.querySelector('.loginBox a');
 const loginBox = document.querySelector('.loginBox');
 const header = document.querySelector('.header');
@@ -54,6 +55,7 @@ if(logo && input && header){
       // console.log(progress);
       header.classList.add('shrink');
       input.classList.add('shrink');
+      
     }
     else{
       header.classList.remove('shrink');
@@ -63,10 +65,13 @@ if(logo && input && header){
       if(window.scrollY > 0){
         loginBox.classList.add('shrink');
       }
+      if(progress){
+            inputContainer.classList.add('shrink');
+      }
       else{
         loginBox.classList.remove('shrink');
+        inputContainer.classList.remove('shrink');
       }
-      
     }
 
   });
