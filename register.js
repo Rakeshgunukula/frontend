@@ -144,9 +144,9 @@ loginBtn.onclick = e =>{
                     window.location.href = '/index.html';
                 },3000);
             } else if(response.status === 400 || response.status === 404){
-                loginpassword.classList.add('active');
+                loginpassword.classList.add('show');
                 setTimeout(()=>{
-                    loginpassword.classList.remove('active');
+                    loginpassword.classList.remove('show');
                 },2000)
                 showMsg.querySelector('p').textContent = data.message;
                 
