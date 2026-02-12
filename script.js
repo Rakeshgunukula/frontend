@@ -48,7 +48,7 @@ if(logo && input && header){
     logo.style.transform = `scale(${1- progress})`;
     if(window.innerWidth > 900){
       input.style.transform = ` translateX(${2 * progress})px`;
-      input.style.flex = `${Math.max(0.6 - progress, .45)}`;
+      input.style.flex = `${Math.max(0.2 - progress, .45)}`;
     }
     else{
       input.style.flex = Math.min(0.5 + progress,1);
