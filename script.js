@@ -53,34 +53,22 @@ if(logo && input && header){
     if(loginBox){
       if(window.scrollY > 0){
         loginBox.classList.add('shrink');
-        
       }
       else{
         loginBox.classList.remove('shrink');
       }
+    }
+  
      if(progress){
       // console.log(progress);
       header.classList.add('shrink');
       input.classList.add('shrink');
-
-      if(window.innerWidth > 901){
-    input.style.transform = ` translateX(${2 * progress})%`;
-      input.style.flex = 0.5;
-    }
-    else{
-      input.style.flex = 0.5;
-      input.style.flex = Math.min(0.5 + progress, .8);
-    }
-     
-
     }
     else{
       header.classList.remove('shrink');
       input.classList.remove('shrink');
     }
-  }
   });
-}
 /* ========= DISPLAY PRODUCTS ========= */
 
 function displayProducts(filter = ''){
