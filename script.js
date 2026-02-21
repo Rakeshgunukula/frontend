@@ -437,7 +437,7 @@ recognition.interimResults = false;
 if(microphone){
 
 microphone.addEventListener('click',() =>{
-  // microphone.classList.toggle('active');
+  microphone.classList.toggle('active');
   let isacitve = true;
   if(isacitve){
     recognition.start();
