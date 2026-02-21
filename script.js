@@ -454,7 +454,7 @@ microphone.addEventListener('click',() =>{
 recognition.onresult = (event) =>{
   const text = event.results[0][0].transcript;
   const productInput = document.querySelector('#productInput');
-  speak(productInput,text);
+  speak(productInput,text.toLowerCase());
 }
 
 recognition.onerror = (e) =>{
