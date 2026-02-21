@@ -220,7 +220,6 @@ body::-webkit-scrollbar{
 
 .productFooter button:nth-child(2):hover{
   opacity: 1;
-  background:black;
 }
 .productFooter button:nth-child(2).active{
   background:black;
