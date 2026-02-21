@@ -433,7 +433,7 @@ function saytext(){
 const recognition = new SpeechRecognition()
 recognition.lang = "en-IN";
 recognition.continues = true;
-recognition.interimResults = true;
+recognition.interimResults = false;
 if(microphone){
 
 microphone.addEventListener('click',() =>{
@@ -470,7 +470,7 @@ function speak(productInput, text){
       productInput.value = text;
       clearInterval(interval);
     }
-  },50)
+  },70)
 }
 
 
