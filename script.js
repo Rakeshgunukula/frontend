@@ -432,20 +432,20 @@ function saytext(){
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition()
 recognition.lang = "en-IN";
-recognition.continues = true;
+recognition.continuous = true;
 recognition.interimResults = false;
 if(microphone){
 
 microphone.addEventListener('click',() =>{
   microphone.classList.toggle('active');
-  let isacitve = true;
-  if(isacitve){
+  let isacitve = false;
+  if(!isacitve){
     recognition.start();
-    isacitve = false;
+    isacitve = true;
   }
   else{
     recognition.stop();
-    isacitve = true;
+    isacitve = false;
   }
   
 })
@@ -477,9 +477,11 @@ function speak(productInput, text){
     if(i >= text.length){
       productInput.value = text;
       clearInterval(interval);
+      displayProducts(text.toLowerCase());
     }
   },70)
 }
+
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
