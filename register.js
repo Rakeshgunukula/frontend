@@ -47,7 +47,7 @@ loginBtn.onclick = e =>{
 
     // register form
 
-    // api uri
+    // api uri from render
 
     const API_URI = 'https://shopping-app-backend-o6w8.onrender.com';
  

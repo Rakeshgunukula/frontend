@@ -210,19 +210,24 @@ body::-webkit-scrollbar{
   border:none;
   cursor: pointer;
 }
-.productFooter .file{
-  padding:20px;
-  background:transparent;
-  border:1px solid;
+
+.productFooter button:nth-child(2){
+  background:none;
+  font-size: 1.7rem;
+  transition:all .5s ease;
   border-radius:50%;
-  cursor: pointer;
 }
-.productFooter .file i{
-  color:white;
-  font-weight:2rem;
+
+.productFooter button:nth-child(2):hover{
+  opacity: 1;
+}
+.productFooter button:nth-child(2).active{
+  background:black;
+  border-radius:50%;
+  opacity: 1;
 }
 .productFooter button:hover{
-  opacity:0.6;
+  opacity:0.6
 }
 /* ================= CART PAGE ================= */
 

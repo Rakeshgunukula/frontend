@@ -411,8 +411,69 @@ if(cartIcon){
 }
 
 
+// adding microphone to access voice like ai bot
+
+function speech() {
+  setTimeout(()=>{
+    let speakText = 'Dear User, Welcome to my website to explore the items you may like';
+    const speech = new SpeechSynthesisUtterance(speakText);
+    
+    speech.rate = .8;
+    speech.pitch = 15;
+    window.speechSynthesis.speak(speech);
+  },2000)
+}
+
+const microphone = document.querySelector('#microphone');
+function saytext(){
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition()
+recognition.lang = "en-IN";
+recognition.continues = true;
+recognition.interimResults = true;
+if(microphone){
+
+microphone.addEventListener('click',() =>{
+  microphone.classList.toggle('active');
+  recognition.start();
+  
+})
+}
+
+recognition.onresult = (event) =>{
+  const text = event.results[0][0].transcript;
+  const productInput = document.querySelector('#productInput');
+  speak(productInput,text);
+}
+
+recognition.onerror = (e) =>{
+  console.log('Error:', e);
+}
+}
+
+saytext()
+function speak(productInput, text){
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.rate = 1;
+  speech.pitch = 1;
+  window.speechSynthesis.speak(speech);
+  // creating type writer effect
+  productInput.value = '';
+  let i = 0;
+  let interval = setInterval(()=>{
+    productInput.value = text.substring(0, i) + "|";
+    i++;
+    if(i >= text.length){
+      productInput.value = text;
+      clearInterval(interval);
+    }
+  },50)
+}
+
+
 document.addEventListener('DOMContentLoaded', ()=>{
   updateCartCount();        
   updateCartPage();       
   updateOrders();    
+  speech();
 });
