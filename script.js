@@ -414,15 +414,18 @@ if(cartIcon){
 // adding microphone to access voice like ai bot
 
 function speech() {
-  setTimeout(()=>{
-    let speakText = 'Dear User, Welcome to my website to explore the items you may like';
+    let speakText = 'Welcome to Shopping Zone';
     const speech = new SpeechSynthesisUtterance(speakText);
-    
-    speech.rate = .8;
-    speech.pitch = 15;
+    speech.rate = .6;
+    speech.pitch = 1;
     window.speechSynthesis.speak(speech);
-  },2000)
 }
+
+header.addEventListener('click',() =>{
+  setTimeout(()=>{
+    speech();
+  },2000)
+})
 
 const microphone = document.querySelector('#microphone');
 function saytext(){
@@ -434,7 +437,7 @@ recognition.interimResults = true;
 if(microphone){
 
 microphone.addEventListener('click',() =>{
-  microphone.classList.toggle('active');
+  // microphone.classList.toggle('active');
   recognition.start();
   
 })
@@ -453,7 +456,7 @@ recognition.onerror = (e) =>{
 
 saytext()
 function speak(productInput, text){
-  const speech = new SpeechSynthesisUtterance(text);
+  const speech = new SpeechSynthesisUtterance(`Searching for ${text}`);
   speech.rate = 1;
   speech.pitch = 1;
   window.speechSynthesis.speak(speech);
@@ -475,5 +478,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
   updateCartCount();        
   updateCartPage();       
   updateOrders();    
-  speech();
 });

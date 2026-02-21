@@ -214,12 +214,13 @@ body::-webkit-scrollbar{
 .productFooter button:nth-child(2){
   background:none;
   font-size: 1.7rem;
-  transition:all .5s ease;
+  transition:all .25s ease;
   border-radius:50%;
 }
 
 .productFooter button:nth-child(2):hover{
   opacity: 1;
+  background:black;
 }
 .productFooter button:nth-child(2).active{
   background:black;
