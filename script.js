@@ -452,7 +452,7 @@ microphone.addEventListener('click',() =>{
 }
 
 recognition.onresult = (event) =>{
-  const text = event.results[0][0].transcript;
+  const text = event.results[event.results.length - 1][0].transcript;
   const productInput = document.querySelector('#productInput');
   speak(productInput,text.toLowerCase());
 }
