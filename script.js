@@ -420,11 +420,11 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const recognition = new SpeechRecognition();
 
 recognition.lang = 'en-US';
-recognition.continuous = false;
-recognition.interimResults = false;
+recognition.continuous = true;
+recognition.interimResults = true;
 
 recognition.onresult = (event) => {
-  let command = event.results[0][0].transcript.toLowerCase();
+  let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
   if(command.includes('open youtube')){
     speak('Opening Youtube...');
     window.open('https://youtube.com');
@@ -471,12 +471,15 @@ function typing(command){
         clearInterval(interval);
         productInput.value = command;
       }
-    },100)
+    },150)
   }
 }
     // S P E A K V O I C E
     function speak(command){
       const speech = new SpeechSynthesisUtterance(command);
+      const voices = speechSynthesis.getVoices();
+      const femaleVoice = voices.find(voice => v.name.includes("Female")) || voices[0];
+      speech.voice = femaleVoice;
       speech.rate = 1;
       speech.pitch = 1;
       speechSynthesis.speak(speech);
