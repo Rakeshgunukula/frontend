@@ -480,6 +480,7 @@ if(microphone){
       recognition.stop();
       isActive = false;
       microphone.classList.remove('active');
+      speak('voice assistant stopped');
     }
   })
 
