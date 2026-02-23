@@ -416,15 +416,26 @@ if(cartIcon){
 // speech Recognition api
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
 const recognition = new SpeechRecognition();
-
 recognition.lang = 'en-US';
 recognition.continuous = true;
 recognition.interimResults = false;
 
+    // speak command
+         function speak(command){
+      const speech = new SpeechSynthesisUtterance(command);
+      const voices = speechSynthesis.getVoices();
+      const femaleVoice = voices.find(voice => v.name.includes("Female"));
+      speech.voice = femaleVoice;
+      speech.rate = 1;
+      speech.pitch = 1;
+      speechSynthesis.speak(speech);
+    }
+
+    //voice commands
+
 recognition.onresult = (event) => {
-  let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+  let command = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
   if(command.includes('open youtube')){
     speak('opening youtube...');
     window.open('https://youtube.com');
@@ -439,13 +450,15 @@ recognition.onresult = (event) => {
     typing(command);
     speak('Searching for ' + command);
   }
-  else if(command.includes('go to cart' || 'open cart' || 'cart open cheyi')){
+  else if(command.includes('open cart')){
+    speak('opening cart');
     const cartIcon = document.querySelector('#cartIcon');
     if(!cartIcon) return;
     cartIcon.click();
 
   }
-  else if(command.includes('go to orders' || 'open orders' || 'orders ki vellu')){
+  else if(command.includes('open orders')){
+    speak('opening orders')
     const ordersBtn = document.querySelector('#ordersBtn');
     if(!ordersBtn) return;
     ordersBtn.click();
@@ -461,17 +474,7 @@ if(microphone){
       recognition.start();
       isActive = true;
       microphone.classList.add('active');
-
-      // speak command
-         function speak(command){
-      const speech = new SpeechSynthesisUtterance(command);
-      const voices = speechSynthesis.getVoices();
-      const femaleVoice = voices.find(voice => v.name.includes("Female"));
-      speech.voice = femaleVoice;
-      speech.rate = 1;
-      speech.pitch = 1;
-      speechSynthesis.speak(speech);
-    }
+      speak('Voice assistant started');
     }
     else{
       recognition.stop();
@@ -480,6 +483,10 @@ if(microphone){
     }
   })
 
+}
+
+recognition.onend = () => {
+  recognition.start();
 }
 // type Writer effect 
 function typing(command){
