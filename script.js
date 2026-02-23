@@ -413,75 +413,74 @@ if(cartIcon){
 
 // adding microphone to access voice like ai bot
 
-function speech() {
-    let speakText = 'Welcome to Shopping Zone';
-    const speech = new SpeechSynthesisUtterance(speakText);
-    speech.rate = .6;
-    speech.pitch = 1;
-    window.speechSynthesis.speak(speech);
-}
+// speech Recognition api
 
-header.addEventListener('click',() =>{
-  setTimeout(()=>{
-    speech();
-  },2000)
-})
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const recognition = new SpeechRecognition();
+
+recognition.lang = 'en-US';
+recognition.continuous = false;
+recognition.interimResults = false;
+
+recognition.onresult = (event) => {
+  let command = event.results[0][0].transcript.toLowerCase();
+  if(command.includes('open youtube')){
+    speak('Opening Youtube...');
+    window.open('https://youtube.com');
+  }
+  else if(command.includes('open google')){
+    speak('Opening Google...');
+    window.open('https://google.com');
+  }
+  else if(command.includes('search for')){
+    command = command.replace('search for', '').trim();
+    displayProducts(command);
+    typing(command);
+    speak('Searching for ' + command);
+  }
+}
 
 const microphone = document.querySelector('#microphone');
-function saytext(){
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition()
-recognition.lang = "en-IN";
-recognition.continuous = true;
-recognition.interimResults = false;
 if(microphone){
+  let isActive = false;
 
-microphone.addEventListener('click',() =>{
-  microphone.classList.toggle('active');
-  let isacitve = false;
-  if(!isacitve){
-    recognition.start();
-    isacitve = true;
-  }
-  else{
-    recognition.stop();
-    isacitve = false;
-  }
-  
-})
-}
-
-recognition.onresult = (event) =>{
-  const text = event.results[event.results.length - 1][0].transcript;
-  const productInput = document.querySelector('#productInput');
-  speak(productInput,text.toLowerCase());
-}
-
-recognition.onerror = (e) =>{
-  console.log('Error:', e);
-}
-}
-
-saytext()
-function speak(productInput, text){
-  const speech = new SpeechSynthesisUtterance(`Searching for ${text}`);
-  speech.rate = 1;
-  speech.pitch = 1;
-  window.speechSynthesis.speak(speech);
-  // creating type writer effect
-  productInput.value = '';
-  let i = 0;
-  let interval = setInterval(()=>{
-    productInput.value = text.substring(0, i) + "|";
-    i++;
-    if(i >= text.length){
-      productInput.value = text;
-      clearInterval(interval);
-      displayProducts(text.toLowerCase());
+  microphone.addEventListener('click',()=>{
+    if(!isActive){
+      recognition.start();
+      isActive = true;
+      microphone.classList.add('active');
     }
-  },70)
-}
+    else{
+      recognition.stop();
+      isActive = false;
+      microphone.classList.remove('active');
+    }
+  })
 
+}
+// type Writer effect 
+function typing(command){
+  const productInput = document.querySelector('#productInput');
+  if(productInput){
+    let i = 0;
+    let interval = setInterval(()=>{
+      productInput.value = command.substring(0,i) + '|';
+      i++;
+      if(i > command.length){
+        clearInterval(interval);
+        productInput.value = command;
+      }
+    },100)
+  }
+}
+    // S P E A K V O I C E
+    function speak(command){
+      const speech = new SpeechSynthesisUtterance(command);
+      speech.rate = 1;
+      speech.pitch = 1;
+      speechSynthesis.speak(speech);
+    }
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
