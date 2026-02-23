@@ -452,8 +452,6 @@ recognition.onresult = (event) => {
   }
   else if(command.includes('open cart')){
     speak('opening cart');
-    const cartIcon = document.querySelector('#cartIcon');
-    if(!cartIcon) return;
     cartIcon.click();
 
   }
