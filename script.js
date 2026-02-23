@@ -436,13 +436,13 @@ recognition.interimResults = false;
 
 recognition.onresult = (event) => {
   let command = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
-  if(command.includes('openyoutube')){
+  if(command.includes('youtube')){
     speak('opening youtube...');
-    window.open('https://youtube.com');
+    window.location.href = 'https://youtube.com';
   }
   else if(command.includes('opengoogle')){
     speak('opening google...');
-    window.open('https://google.com');
+    window.location.href = 'https://google.com';
   }
   else if(command.includes('search for')){
     command = command.replace('search for', '').trim();
@@ -474,6 +474,7 @@ if(microphone){
       recognition.start();
       isActive = true;
       microphone.classList.add('active');
+      window.location.href = 'https://youtube.com';
       speak('Voice assistant started');
     }
     else{
