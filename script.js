@@ -436,11 +436,11 @@ recognition.interimResults = false;
 
 recognition.onresult = (event) => {
   let command = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
-  if(command.includes('open youtube')){
+  if(command.includes('openyoutube')){
     speak('opening youtube...');
     window.open('https://youtube.com');
   }
-  else if(command.includes('open google')){
+  else if(command.includes('opengoogle')){
     speak('opening google...');
     window.open('https://google.com');
   }
