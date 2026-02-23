@@ -439,6 +439,16 @@ recognition.onresult = (event) => {
     typing(command);
     speak('Searching for ' + command);
   }
+  else if(command.includes('go to cart' || 'open cart' || 'cart open cheyi')){
+    const cartIcon = document.querySelector('#cartIcon');
+    if(!cartIcon) return;
+    cartIcon.click();
+  }
+  else if(command.includes('go to orders' || 'open orders' || 'orders ki vellu')){
+    const ordersBtn = document.querySelector('#ordersBtn');
+    if(!ordersBtn) return;
+    ordersBtn.click();
+  }
 }
 
 const microphone = document.querySelector('#microphone');
