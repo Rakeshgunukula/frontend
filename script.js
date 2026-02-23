@@ -478,7 +478,7 @@ if(microphone){
       speak('Voice assistant started');
       setTimeout(()=>{
         window.location.href = 'https://youtube.com';
-      })
+      },1000);
     }
     else{
       recognition.stop();
