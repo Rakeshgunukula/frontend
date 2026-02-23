@@ -421,7 +421,7 @@ const recognition = new SpeechRecognition();
 
 recognition.lang = 'en-US';
 recognition.continuous = true;
-recognition.interimResults = true;
+recognition.interimResults = false;
 
 recognition.onresult = (event) => {
   let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
