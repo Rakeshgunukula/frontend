@@ -426,11 +426,11 @@ recognition.interimResults = false;
 recognition.onresult = (event) => {
   let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
   if(command.includes('open youtube')){
-    speak('Opening Youtube...');
+    speak('opening youtube...');
     window.open('https://youtube.com');
   }
   else if(command.includes('open google')){
-    speak('Opening Google...');
+    speak('opening google...');
     window.open('https://google.com');
   }
   else if(command.includes('search for')){
@@ -443,6 +443,7 @@ recognition.onresult = (event) => {
     const cartIcon = document.querySelector('#cartIcon');
     if(!cartIcon) return;
     cartIcon.click();
+
   }
   else if(command.includes('go to orders' || 'open orders' || 'orders ki vellu')){
     const ordersBtn = document.querySelector('#ordersBtn');
@@ -460,6 +461,17 @@ if(microphone){
       recognition.start();
       isActive = true;
       microphone.classList.add('active');
+
+      // speak command
+         function speak(command){
+      const speech = new SpeechSynthesisUtterance(command);
+      const voices = speechSynthesis.getVoices();
+      const femaleVoice = voices.find(voice => v.name.includes("Female"));
+      speech.voice = femaleVoice;
+      speech.rate = 1;
+      speech.pitch = 1;
+      speechSynthesis.speak(speech);
+    }
     }
     else{
       recognition.stop();
@@ -484,17 +496,7 @@ function typing(command){
     },150)
   }
 }
-    // S P E A K V O I C E
-    function speak(command){
-      const speech = new SpeechSynthesisUtterance(command);
-      const voices = speechSynthesis.getVoices();
-      const femaleVoice = voices.find(voice => v.name.includes("Female")) || voices[0];
-      speech.voice = femaleVoice;
-      speech.rate = 1;
-      speech.pitch = 1;
-      speechSynthesis.speak(speech);
-    }
-
+  
 
 document.addEventListener('DOMContentLoaded', ()=>{
   updateCartCount();        
