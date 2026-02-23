@@ -474,7 +474,7 @@ if(microphone){
       recognition.start();
       isActive = true;
       microphone.classList.add('active');
-      window.location.href = 'https://youtube.com';
+      
       speak('Voice assistant started');
     }
     else{
