@@ -438,11 +438,11 @@ recognition.onresult = (event) => {
   let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
   if(command.includes('openyoutube')){
     speak('opening youtube...');
-    window.location.href = 'https://youtube.com';
+    window.open("https://youtube.com");
   }
   else if(command.includes('opengoogle')){
     speak('opening google...');
-    window.location.href = 'https://google.com';
+    window.open("https://google.com");
   }
   else if(command.includes('search for')){
     command = command.replace('search for', '').trim();
@@ -450,7 +450,7 @@ recognition.onresult = (event) => {
     typing(command);
     speak('Searching for ' + command);
   }
-  else if(command.includes('opencart')){
+  else if(command.includes('opencart') || command.includes('gotocart')){
     speak('opening cart');
     const cartIcon = document.querySelector('#cartIcon i');
     cartIcon.dispatchEvent(new MouseEvent("click",{
@@ -460,7 +460,7 @@ recognition.onresult = (event) => {
     }))
 
   }
-  else if(command.includes('openorders')){
+  else if(command.includes('openorders') || command.includes('gotoorders')){
     speak('opening orders')
     const ordersBtn = document.querySelector('#ordersBtn');
     if(!ordersBtn) return;
@@ -477,9 +477,7 @@ if(microphone){
       isActive = true;
       microphone.classList.add('active');
       speak('Voice assistant started');
-      setTimeout(()=>{
-        window.location.href = 'https://youtube.com';
-      },1000);
+    window.speechSynthesis.speak(new SpeechSynthesisUtterance('Welcome to my website'));
     }
     else{
       recognition.stop();
