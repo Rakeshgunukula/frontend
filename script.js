@@ -418,7 +418,7 @@ if(cartIcon){
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.lang = 'en-US';
-recognition.continuous = false;
+recognition.continuous = true;
 recognition.interimResults = false;
 
     // speak command
@@ -435,7 +435,7 @@ recognition.interimResults = false;
     //voice commands
 
 recognition.onresult = (event) => {
-  let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+  let command = event.results[0][0].transcript.toLowerCase();
   if(command.includes('openyoutube')){
     speak('opening youtube...');
     window.open("https://youtube.com");
