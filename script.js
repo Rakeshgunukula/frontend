@@ -438,11 +438,13 @@ recognition.onresult = (event) => {
   let command = event.results[0][0].transcript.toLowerCase();
   if(command.includes('openyoutube')){
     speak('opening youtube...');
-    window.open("https://youtube.com");
+    typing(command);
+    window.open('https://youtube.com');
   }
   else if(command.includes('opengoogle')){
     speak('opening google...');
-    window.open("https://google.com");
+    typing(command);
+    window.open('https://google.com');
   }
   else if(command.includes('search for')){
     command = command.replace('search for', '').trim();
