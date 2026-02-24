@@ -418,7 +418,7 @@ if(cartIcon){
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 recognition.lang = 'en-US';
-recognition.continuous = true;
+recognition.continuous = false;
 recognition.interimResults = false;
 
     // speak command
