@@ -452,7 +452,7 @@ recognition.onresult = (event) => {
   }
   else if(command.includes('opencart')){
     speak('opening cart');
-    const cartIcon = document.querySelector('#cartIcon');
+    const cartIcon = document.querySelector('#cartIcon i');
     cartIcon.dispatchEvent(new MouseEvent("click",{
       bubbles:true,
       view:window,
