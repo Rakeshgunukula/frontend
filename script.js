@@ -422,21 +422,21 @@ recognition.continuous = false;
 recognition.interimResults = false;
 
     // speak command
-         function speak(command){
+      function speak(command){
       const speech = new SpeechSynthesisUtterance(command);
       const voices = speechSynthesis.getVoices();
       const femaleVoice = voices.find(voice => v.name.includes("Female"));
       speech.voice = femaleVoice;
       speech.rate = 1;
       speech.pitch = 1;
-      speechSynthesis.speak(speech);
+      window.speechSynthesis.speak(speech);
     }
 
     //voice commands
 
 recognition.onresult = (event) => {
-  let command = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
-  if(command.includes('youtube')){
+  let command = event.results[event.results.length - 1][0].transcript.toLowerCase();
+  if(command.includes('openyoutube')){
     speak('opening youtube...');
     window.location.href = 'https://youtube.com';
   }
@@ -450,12 +450,17 @@ recognition.onresult = (event) => {
     typing(command);
     speak('Searching for ' + command);
   }
-  else if(command.includes('open cart')){
+  else if(command.includes('opencart')){
     speak('opening cart');
-    cartIcon.click();
+    const cartIcon = document.querySelector('#cartIcon');
+    cartIcon.dispatchEvent(new MouseEvent("click",{
+      bubbles:true,
+      view:window,
+      cancelable:true
+    }))
 
   }
-  else if(command.includes('open orders')){
+  else if(command.includes('openorders')){
     speak('opening orders')
     const ordersBtn = document.querySelector('#ordersBtn');
     if(!ordersBtn) return;
@@ -466,13 +471,11 @@ recognition.onresult = (event) => {
 const microphone = document.querySelector('#microphone');
 if(microphone){
   let isActive = false;
-
   microphone.addEventListener('click',()=>{
     if(!isActive){
       recognition.start();
       isActive = true;
       microphone.classList.add('active');
-      
       speak('Voice assistant started');
       setTimeout(()=>{
         window.location.href = 'https://youtube.com';
